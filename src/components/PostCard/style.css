@@ -1,0 +1,30 @@
+.post{
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    transition: transform 100ms ease-in-out;
+
+    
+}
+.post-content{
+    border: 1px solid red;
+    height: 100px;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    text-align: justify;
+}
+.post-content p{
+    font-size: 10px;
+}
+.post-content h1{
+    font-size: 14px;
+}
+img{
+    max-width: 100%;
+  }
+.post:hover{
+    transform: scale(1.05);
+}
+.post-content{
+    padding: 10px;
+}
