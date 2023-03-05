@@ -10,7 +10,7 @@ export class Home extends Component {
     posts : [],
     allPosts : [],
     page : 0,
-    postsPerPage : 50,
+    postsPerPage : 30,
     theresMostPosts : true
   };
 
@@ -31,8 +31,8 @@ export class Home extends Component {
     posts.push(...slicePost);
     this.setState({posts, page : nextPage})
 
-    const thereMostPosts = page + postsPerPage > allPosts.length ? false : true;
-    this.setState({thereMostPosts});
+    const MostPosts = nextPage + postsPerPage >= allPosts.length ? false : true;
+    this.setState({theresMostPosts: MostPosts});
   }
 
   loadPost = async () =>{
@@ -46,9 +46,6 @@ export class Home extends Component {
   }
   render(){
     const {posts, theresMostPosts} = this.state
-    if(theresMostPosts){
-      console.log("tem mais post");
-    }else console.log("acabou os posts");
     return (
       <section className='container'>
         <Posts posts = {posts}/>
@@ -56,7 +53,7 @@ export class Home extends Component {
           <Button
             onClick = {this.loadMorePosts}
             text = "Botao Miguel"
-            
+            disabled = {!theresMostPosts}
           ></Button>
         </div>
       </section>
